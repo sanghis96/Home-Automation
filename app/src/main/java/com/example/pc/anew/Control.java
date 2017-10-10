@@ -29,6 +29,7 @@ public class Control extends AppCompatActivity {
             voiceInput = (TextView) findViewById(R.id.voiceInput);
             speakButton = (TextView) findViewById(R.id.btnSpeak);
 
+
             speakButton.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -36,6 +37,7 @@ public class Control extends AppCompatActivity {
                     askSpeechInput();
                 }
             });
+
 
         }
 
