@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Intent i=new Intent(MainActivity.this,Control.class);
                 startActivity(i);
-                setContentView(R.layout.control_speech);
+
             }
         });
 
@@ -38,9 +38,12 @@ public class MainActivity extends AppCompatActivity
             {
                 Intent i=new Intent(MainActivity.this,Status.class);
                 startActivity(i);
-                setContentView(R.layout.status_appliances);
+
             }
         });
+
     }
+
+
 
 }

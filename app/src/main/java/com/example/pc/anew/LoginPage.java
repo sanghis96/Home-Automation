@@ -37,7 +37,7 @@ public class LoginPage extends AppCompatActivity
             {
                 Intent i=new Intent(LoginPage.this,MainActivity.class);
                 startActivity(i);
-                setContentView(R.layout.activity_main);
+
             }
         });
 
@@ -46,7 +46,7 @@ public class LoginPage extends AppCompatActivity
             {
                 Intent i=new Intent(LoginPage.this,MainActivity.class);
                 startActivity(i);
-                setContentView(R.layout.activity_main);
+
             }
         });
 
