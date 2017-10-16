@@ -35,6 +35,14 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".SignUp">
+            <intent-filter>
+                <action android:name="android.intent.action.SIGNUP" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
 
     </application>
 
