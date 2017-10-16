@@ -1,16 +1,11 @@
 package com.example.pc.anew;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.EditText;
-
-import static com.example.pc.anew.R.id.cnrlbtn;
 
 /**
  * Created by kanak on 10-10-2017.
@@ -28,7 +23,7 @@ public class LoginPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        email=(EditText) findViewById(R.id.email);
+        email=(EditText) findViewById(R.id.name);
         pwd=(EditText) findViewById(R.id.pwd);
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
@@ -44,7 +39,7 @@ public class LoginPage extends AppCompatActivity
         btn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent i=new Intent(LoginPage.this,MainActivity.class);
+                Intent i=new Intent(LoginPage.this,SignUp.class);
                 startActivity(i);
 
             }
