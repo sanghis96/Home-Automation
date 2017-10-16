@@ -12,10 +12,19 @@
         <activity android:name=".MainActivity" >
 
         </activity>
-        <activity android:name=".Control" >
+        <activity android:name=".Control">
+            <intent-filter>
+                <action android:name="com.example.pc.anew.CONTROL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".Status">
+
+            <intent-filter>
+                <action android:name="com.example.pc.anew.STATUS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".LoginPage">
