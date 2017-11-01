@@ -27,6 +27,7 @@ public class LoginPage extends AppCompatActivity
         pwd=(EditText) findViewById(R.id.pwd);
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
+
         btn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
@@ -44,7 +45,6 @@ public class LoginPage extends AppCompatActivity
 
             }
         });
-
 
     }
 

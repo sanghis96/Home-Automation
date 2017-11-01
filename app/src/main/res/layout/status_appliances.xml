@@ -12,19 +12,18 @@
             android:id="@+id/t1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/mySwitch"
-            android:layout_alignBottom="@+id/mySwitch"
+            android:layout_alignBaseline="@+id/switch1"
+            android:layout_alignBottom="@+id/switch1"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:padding="2dp"
-            android:text="Drawing Room LED"
-            android:textSize="25sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
 
         <Switch
-            android:id="@+id/mySwitch"
+            android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -39,13 +38,26 @@
             android:track="@drawable/control_track" />
 
         <Switch
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/switch1"
+            android:layout_alignStart="@+id/switch1"
+            android:layout_below="@+id/switch1"
+            android:layout_marginTop="28dp"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:thumb="@drawable/customswitchselector"
+            android:track="@drawable/control_track" />
+
+        <Switch
             android:id="@+id/switch3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/mySwitch"
-            android:layout_alignStart="@+id/mySwitch"
-            android:layout_below="@+id/mySwitch"
-            android:layout_marginTop="28dp"
+            android:layout_alignLeft="@+id/switch2"
+            android:layout_alignStart="@+id/switch2"
+            android:layout_below="@+id/switch2"
+            android:layout_marginTop="32dp"
             android:textOff="OFF"
             android:textOn="ON"
             android:thumb="@drawable/customswitchselector"
@@ -55,27 +67,27 @@
             android:id="@+id/switch4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/switch3"
+            android:layout_alignStart="@+id/switch3"
+            android:layout_below="@+id/switch3"
             android:layout_marginTop="32dp"
             android:textOff="OFF"
             android:textOn="ON"
             android:thumb="@drawable/customswitchselector"
-            android:track="@drawable/control_track"
-            android:layout_below="@+id/switch3"
-            android:layout_alignLeft="@+id/switch3"
-            android:layout_alignStart="@+id/switch3" />
+            android:track="@drawable/control_track" />
 
         <Switch
             android:id="@+id/switch5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_alignLeft="@+id/switch4"
+            android:layout_alignStart="@+id/switch4"
+            android:layout_below="@+id/switch4"
+            android:layout_marginTop="41dp"
             android:textOff="OFF"
             android:textOn="ON"
             android:thumb="@drawable/customswitchselector"
-            android:track="@drawable/control_track"
-            android:layout_below="@+id/switch4"
-            android:layout_alignLeft="@+id/switch4"
-            android:layout_alignStart="@+id/switch4" />
+            android:track="@drawable/control_track" />
 
         <TextView
             android:id="@+id/t2"
@@ -85,9 +97,8 @@
             android:layout_alignStart="@+id/t1"
             android:layout_alignTop="@+id/switch3"
             android:padding="2dp"
-            android:text="Bedroom LED"
-            android:textSize="26sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="26sp" />
 
         <TextView
             android:id="@+id/t3"
@@ -97,9 +108,8 @@
             android:layout_alignStart="@+id/t2"
             android:layout_alignTop="@+id/switch4"
             android:padding="2dp"
-            android:text="Drawaing room Fans"
-            android:textSize="26sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="26sp" />
 
         <TextView
             android:id="@+id/t4"
@@ -108,9 +118,9 @@
             android:layout_alignLeft="@+id/t3"
             android:layout_alignStart="@+id/t3"
             android:layout_alignTop="@+id/switch5"
-            android:text="Bedroom Fans"
-            android:textSize="26sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="26sp" />
+
 
     </RelativeLayout>
 
