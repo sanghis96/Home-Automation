@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pc.anew" >
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -45,6 +46,41 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".UserDetails">
+            <intent-filter>
+                <action android:name="android.intent.action.USERDETAILS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".AddAppliance">
+            <intent-filter>
+                <action android:name="android.intent.action.ADDAPPLIANCE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ManageAppliance">
+            <intent-filter>
+                <action android:name="android.intent.action.MANAGEAPPLIANCE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".btnas">
+            <intent-filter>
+                <action android:name="android.intent.action.BTNAS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+
+
 
     </application>
 
