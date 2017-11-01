@@ -10,11 +10,12 @@
 
         <Button
             android:id="@+id/cnrlbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="176dp"
+            android:layout_alignLeft="@+id/manage"
+            android:layout_alignStart="@+id/manage"
+            android:layout_alignTop="@+id/manage"
+            android:layout_marginTop="96dp"
             android:background="@color/colorBtn"
             android:padding="16dp"
             android:text="Control Appliances"
@@ -22,15 +23,39 @@
 
         <Button
             android:id="@+id/stsbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/cnrlbtn"
+            android:layout_alignRight="@+id/cnrlbtn"
             android:layout_below="@+id/cnrlbtn"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="44dp"
             android:background="@color/colorBtn"
             android:padding="10dp"
             android:text="Status of Appliances"
             android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/manage"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="94dp"
+            android:background="@color/colorBtn"
+            android:text="Manage Appliances"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stsbtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="44dp"
+            android:background="@color/colorBtn"
+            android:textColor="@android:color/white"
+            android:text="Logout" />
+
     </RelativeLayout>
 
 </LinearLayout>
