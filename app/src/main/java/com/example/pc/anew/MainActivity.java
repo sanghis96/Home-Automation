@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         stsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-               Intent i=new Intent(MainActivity.this,MainActivity.class);
+               Intent i=new Intent(MainActivity.this,Status.class);
                startActivity(i);
 
             }

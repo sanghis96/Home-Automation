@@ -7,19 +7,27 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 /**
  * Created by kanak on 26-10-2017.
  */
-
 
 public class Status extends AppCompatActivity {
     Switch switch1,switch3,switch4,switch2,switch5;
@@ -120,40 +128,56 @@ public class Status extends AppCompatActivity {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
                     }
                 }
+          }
         }
     }
 
 /*public class Status extends AppCompatActivity
 {
-    private Button add_btn;
-    private EditText add_appliance;
-    private FirebaseAuth firebaseAuth;
+    private static final String TAG ="ERROR" ;
 
+    ListView listview;
+    ArrayList<String> list = new ArrayList<>();
+    FirebaseAuth firebaseAuth;
+    UserInformation usr;
     private DatabaseReference databaseAppliance;
-
-    protected void onCreate(Bundle savedInstanceState) {
+    boolean flag=false;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_appliance);
-
+        setContentView(R.layout.status_appliances);
+        listview=(ListView)findViewById(R.id.listview);
         firebaseAuth = FirebaseAuth.getInstance();
-        add_appliance = (EditText) findViewById(R.id.add_app);
-        add_btn = (Button) findViewById(R.id.add_btn);
-        if(firebaseAuth.getCurrentUser() != null)
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseAppliance = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
+        databaseAppliance.addValueEventListener(new ValueEventListener()
         {
-            finish();
-            Intent i=new Intent(Status.this,LoginPage.class);
-            startActivity(i);
-        }
-
-        databaseAppliance = FirebaseDatabase.getInstance().getReference("appliances");
-
-        add_btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
             {
-                saveuserAppliance();
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                usr=dataSnapshot.getValue(UserInformation.class);
+                flag=true;
+                for(UserAppliance ua:usr.getAppliances())
+                {
+                    list.add(ua.getAddappliance()+"\t\t\t\t\t\t"+ua.getStatus());
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(Status.this, android.R.layout.simple_list_item_1, list);
+                listview.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
     }
+}
+
     private void saveuserAppliance()
     {
         String add = add_appliance.getText().toString().trim();
@@ -166,5 +190,5 @@ public class Status extends AppCompatActivity {
 
         }
 
-    }*/
-}
+    }
+*/
