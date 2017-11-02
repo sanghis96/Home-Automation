@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity
                     Intent i=new Intent(MainActivity.this,LoginPage.class);
                     startActivity(i);            }
         });
+
         stsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {

@@ -29,7 +29,7 @@ import java.util.ArrayList;
  * Created by kanak on 26-10-2017.
  */
 
-public class Status extends AppCompatActivity {
+/*public class Status extends AppCompatActivity {
     Switch switch1,switch3,switch4,switch2,switch5;
     TextView app1,app2,app3,app4;
     Control c = new Control();
@@ -130,9 +130,9 @@ public class Status extends AppCompatActivity {
                 }
           }
         }
-    }
+    }*/
 
-/*public class Status extends AppCompatActivity
+public class Status extends AppCompatActivity
 {
     private static final String TAG ="ERROR" ;
 
@@ -177,18 +177,3 @@ public class Status extends AppCompatActivity {
         });
     }
 }
-
-    private void saveuserAppliance()
-    {
-        String add = add_appliance.getText().toString().trim();
-        if(!TextUtils.isEmpty(add))
-        {
-            String id = databaseAppliance.push().getKey();
-            UserAppliance usr = new UserAppliance(id, add);
-            databaseAppliance.child(id).setValue(usr);
-            Toast.makeText(this,"Information Saved",Toast.LENGTH_LONG).show();
-
-        }
-
-    }
-*/
