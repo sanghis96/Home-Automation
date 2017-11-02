@@ -3,12 +3,9 @@ package com.example.pc.anew;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.support.v7.app.ActionBarActivity;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-=======
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -18,14 +15,13 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
->>>>>>> a130e36ef285b99e3cc10e1a5c4bd5c9bb3e82a6
 
 /**
  * Created by kanak on 26-10-2017.
  */
 
-<<<<<<< HEAD
-public class Status extends ActionBarActivity {
+
+public class Status extends AppCompatActivity {
     Switch switch1,switch3,switch4,switch2,switch5;
     TextView app1,app2,app3,app4;
     Control c = new Control();
@@ -49,16 +45,16 @@ public class Status extends ActionBarActivity {
         switch4 = (Switch) findViewById(R.id.switch4);
         switch5 = (Switch) findViewById(R.id.switch5);
 
-        switch(c.App_index) {
+        switch (c.App_index) {
             case 0:
-                if(switch1.getShowText()) {
-                    if(c.App_Status) {
+                if (switch1.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch1.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch1.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -66,14 +62,14 @@ public class Status extends ActionBarActivity {
                 }
                 break;
             case 1:
-                if(switch2.getShowText()) {
-                    if(c.App_Status) {
+                if (switch2.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch2.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch2.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -81,14 +77,14 @@ public class Status extends ActionBarActivity {
                 }
                 break;
             case 2:
-                if(switch3.getShowText()) {
-                    if(c.App_Status) {
+                if (switch3.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch3.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch3.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -96,14 +92,14 @@ public class Status extends ActionBarActivity {
                 }
                 break;
             case 3:
-                if(switch4.getShowText()) {
-                    if(c.App_Status) {
+                if (switch4.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch4.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch4.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -111,22 +107,22 @@ public class Status extends ActionBarActivity {
                 }
                 break;
             default:
-                if(switch5.getShowText()) {
-                    if(c.App_Status) {
+                if (switch5.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch5.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch5.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
                     }
                 }
         }
+    }
 
-=======
 /*public class Status extends AppCompatActivity
 {
     private Button add_btn;
@@ -169,7 +165,6 @@ public class Status extends ActionBarActivity {
             Toast.makeText(this,"Information Saved",Toast.LENGTH_LONG).show();
 
         }
->>>>>>> a130e36ef285b99e3cc10e1a5c4bd5c9bb3e82a6
 
-    }
-}*/
+    }*/
+}
