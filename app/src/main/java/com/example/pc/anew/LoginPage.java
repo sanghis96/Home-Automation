@@ -47,7 +47,11 @@ public class LoginPage extends AppCompatActivity
         pwd=(EditText) findViewById(R.id.pwd);
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
+<<<<<<< HEAD
+
+=======
         progressDialog = new ProgressDialog(this);
+>>>>>>> a130e36ef285b99e3cc10e1a5c4bd5c9bb3e82a6
         btn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
@@ -65,7 +69,6 @@ public class LoginPage extends AppCompatActivity
 
             }
         });
-
 
     }
     private void userLogin(){

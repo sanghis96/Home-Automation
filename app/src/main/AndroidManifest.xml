@@ -3,6 +3,8 @@
     package="com.example.pc.anew" >
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/launcher"
@@ -24,7 +26,7 @@
 
             <intent-filter>
                 <action android:name="com.example.pc.anew.STATUS" />
-                <category android:name="android.intent.category.DEFAULT" />
+               <!-- <category android:name="android.intent.category.DEFAULT" />-->
             </intent-filter>
 
         </activity>
