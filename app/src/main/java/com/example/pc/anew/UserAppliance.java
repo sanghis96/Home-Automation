@@ -6,7 +6,8 @@ package com.example.pc.anew;
 
 public class UserAppliance
 {
-    private int uid,status=0;
+    private int uid;
+    private String status="off";
     private String addappliance;
 
     public UserAppliance()
@@ -29,11 +30,11 @@ public class UserAppliance
         this.uid = uid;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 

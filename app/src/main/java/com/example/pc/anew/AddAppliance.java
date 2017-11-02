@@ -38,7 +38,6 @@ public class AddAppliance extends AppCompatActivity
     private TextView addpli;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseAppliance;
-    //UserInformation UpdateingUsr;
     UserInformation usr;
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,7 +50,6 @@ public class AddAppliance extends AppCompatActivity
         addb = (Button) findViewById(R.id.add_appbtn);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseAppliance = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-        //String id1 = databaseAppliance.push().getKey();
         final String add_appname = addapp.getText().toString().trim();
         databaseAppliance.addValueEventListener(new ValueEventListener() {
             @Override
