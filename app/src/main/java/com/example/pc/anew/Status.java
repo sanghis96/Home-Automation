@@ -53,16 +53,16 @@ public class Status extends AppCompatActivity {
         switch4 = (Switch) findViewById(R.id.switch4);
         switch5 = (Switch) findViewById(R.id.switch5);
 
-        switch(c.App_index) {
+        switch (c.App_index) {
             case 0:
-                if(switch1.getShowText()) {
-                    if(c.App_Status) {
+                if (switch1.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch1.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch1.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -70,14 +70,14 @@ public class Status extends AppCompatActivity {
                 }
                 break;
             case 1:
-                if(switch2.getShowText()) {
-                    if(c.App_Status) {
+                if (switch2.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch2.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch2.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -85,14 +85,14 @@ public class Status extends AppCompatActivity {
                 }
                 break;
             case 2:
-                if(switch3.getShowText()) {
-                    if(c.App_Status) {
+                if (switch3.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch3.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch3.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -100,14 +100,14 @@ public class Status extends AppCompatActivity {
                 }
                 break;
             case 3:
-                if(switch4.getShowText()) {
-                    if(c.App_Status) {
+                if (switch4.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch4.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch4.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
@@ -115,20 +115,21 @@ public class Status extends AppCompatActivity {
                 }
                 break;
             default:
-                if(switch5.getShowText()) {
-                    if(c.App_Status) {
+                if (switch5.getShowText()) {
+                    if (c.App_Status) {
                         Toast.makeText(this, "Appliance already ON", Toast.LENGTH_LONG).show();
                     } else {
                         switch5.toggle();
                     }
                 } else {
-                    if(c.App_Status) {
+                    if (c.App_Status) {
                         switch5.toggle();
                     } else {
                         Toast.makeText(this, "Appliance already OFF", Toast.LENGTH_LONG).show();
                     }
                 }
           }
+        }
     }
 
 /*public class Status extends AppCompatActivity
@@ -189,5 +190,5 @@ public class Status extends AppCompatActivity {
 
         }
 
-    }*/
-}
+    }
+*/
