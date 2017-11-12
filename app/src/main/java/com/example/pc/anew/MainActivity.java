@@ -5,21 +5,36 @@ import android.content.Intent;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity
 {
+    private static final String TAG = "ERROR";
     private Button cnrlbtn;
     private Button stsbtn;
     private FirebaseAuth firebaseAuth;
     private Button logout;
     private Button manage;
+    ArrayList<UserAppliance> list = new ArrayList<>();
+    UserInformation usr;
+    private DatabaseReference databaseAppliance;
+    boolean flag=false;
 
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -73,8 +88,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+        }
+
     }
-
-
-
-}
