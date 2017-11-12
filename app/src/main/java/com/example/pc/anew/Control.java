@@ -5,9 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,12 +37,13 @@ public class Control extends AppCompatActivity {
     private TextView speakButton;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public ArrayList<String> Appliances = new ArrayList<>();
-    Control() {
-        Appliances.add("fan");
-        Appliances.add("tubelight");
-        Appliances.add("led");
-        Appliances.add("tv");
-    }
+    public ArrayList<String> Status1 = new ArrayList<>();
+    private static final String TAG = "ERROR";
+    private FirebaseAuth firebaseAuth;
+    UserInformation usr;
+    private DatabaseReference databaseAppliance;
+    boolean flag=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +52,33 @@ public class Control extends AppCompatActivity {
         voiceInput = (TextView) findViewById(R.id.voiceInput);
         speakButton = (TextView) findViewById(R.id.btnSpeak);
 
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseAppliance = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
+        databaseAppliance.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                usr=dataSnapshot.getValue(UserInformation.class);
+                flag=true;
+                for(UserAppliance ua:usr.getAppliances())
+                {
+                    Appliances.add(ua.getAddappliance());
+                    Status1.add(ua.getStatus());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
         speakButton.setOnClickListener(new View.OnClickListener() {
 
@@ -81,30 +119,32 @@ public class Control extends AppCompatActivity {
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     voiceInput.setText(result.get(0));
-                    System.out.println(result.get(0));
+                    System.out.println(result.get(0).toLowerCase());
                     System.out.println("0");
-                    words = result.get(0).split(" ");
+                    words = result.get(0).toLowerCase().split(" ");
                     Iterator itr = Appliances.iterator();
+                    int j = 0;
                     while(itr.hasNext())
                     {
                         System.out.println("1");
-                        String koibhi = itr.next().toString();
-                        System.out.println(koibhi);
+                        String appliance = itr.next().toString();
+                        System.out.println(appliance);
                         int i = 0;
                         for(i=0;i<words.length;i++)
                         {
                             System.out.println("2");
                             System.out.println(words[i]);
-                            if(words[i].equals(koibhi))
+                            if(words[i].equals(appliance))
                             {
                                 System.out.println("3");
-                                App_index = i;
+                                App_index = j;
                                 break;
                             }
                         }
                         if( i!= words.length)
                             break;
                         System.out.println("4");
+                        j++;
                     }
                     for(int i=0;i<words.length;i++)
                     {
@@ -122,6 +162,8 @@ public class Control extends AppCompatActivity {
                         System.out.println("8");
                     }
                     System.out.println("9");
+                    System.out.println(Appliances.get(App_index) + " " + App_Status.toString());
+                    System.out.println("Actual Status: " + Status1.get(App_index));
                 }
                 break;
             }

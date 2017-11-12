@@ -50,10 +50,11 @@ public class AddAppliance extends AppCompatActivity
         addb = (Button) findViewById(R.id.add_appbtn);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseAppliance = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-        final String add_appname = addapp.getText().toString().trim();
+        final String add_appname = addapp.getText().toString().trim().toLowerCase();
         databaseAppliance.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 usr=dataSnapshot.getValue(UserInformation.class);
@@ -86,8 +87,13 @@ public class AddAppliance extends AppCompatActivity
     }
     private void registerApp()
     {
-        final String add_appname = addapp.getText().toString().trim();
+        final String add_appname = addapp.getText().toString().trim().toLowerCase();
 
+        for(int i=0; i<add_appname.length(); i++)
+            if(Character.isDigit(add_appname.charAt(i))) {
+                Toast.makeText(this, "Please Enter Valid Name !!!", Toast.LENGTH_LONG).show();
+                return;
+            }
         if(!TextUtils.isEmpty(add_appname))
         {
             ArrayList<UserAppliance> arrayList=usr.getAppliances();
