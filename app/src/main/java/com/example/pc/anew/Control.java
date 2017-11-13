@@ -20,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * Created by kanak on 08-10-2017.
@@ -31,7 +33,7 @@ public class Control extends AppCompatActivity {
 
 
     public int App_index = -1;
-    public Boolean App_Status;
+    public String App_Status;
     String[] words;
     private TextView voiceInput;
     private TextView speakButton;
@@ -151,12 +153,12 @@ public class Control extends AppCompatActivity {
                         System.out.println("5");
                         if(words[i].equals("on")) {
                             System.out.println("6");
-                            App_Status = true;
+                            App_Status = "on";
                             break;
                         }
-                        if(words[i].equals("off")) {
+                        if(words[i].equals("off") || words[i].equals("of")) {
                             System.out.println("7");
-                            App_Status = false;
+                            App_Status = "off";
                             break;
                         }
                         System.out.println("8");
@@ -164,11 +166,53 @@ public class Control extends AppCompatActivity {
                     System.out.println("9");
                     System.out.println(Appliances.get(App_index) + " " + App_Status.toString());
                     System.out.println("Actual Status: " + Status1.get(App_index));
+                    if(App_index == -1) {
+                        Toast.makeText(this,"Appliance not Found",Toast.LENGTH_LONG).show();
+                    } else {
+                        if(App_Status.equals(Status1.get(App_index)))
+                            Toast.makeText(this,Appliances.get(App_index) + " already " + (App_Status=="on"?"ON":"OFF") ,Toast.LENGTH_LONG).show();
+                        else {
+                            updateAppStatus(Appliances.get(App_index), App_Status);
+                        }
+                    }
                 }
                 break;
             }
-
-
         }
+        Intent i=new Intent(Control.this,MainActivity.class);
+        startActivity(i);
+    }
+
+    private void updateAppStatus(final String appliance,final String status) {
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseAppliance = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
+
+
+
+        databaseAppliance.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                usr=dataSnapshot.getValue(UserInformation.class);
+                //int appId = 0;
+                for(UserAppliance ua:usr.getAppliances())
+                {
+                    if(ua.getAddappliance() == appliance) {
+                        ua.setStatus(status);
+                    }
+                }
+
+                databaseAppliance.setValue(usr);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 }

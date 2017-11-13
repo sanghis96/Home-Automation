@@ -22,6 +22,13 @@ public class UserAppliance
         this.addappliance = addappliance;
     }
 
+    public UserAppliance(int uid,String addappliance, String status)
+    {
+        this.uid = uid;
+        this.addappliance = addappliance;
+        this.status = status;
+    }
+
     public int getUid() {
         return uid;
     }
@@ -41,5 +48,9 @@ public class UserAppliance
     public String getAddappliance()
     {
         return addappliance;
+    }
+
+    public void setAddappliance(String addappliance) {
+        this.addappliance = addappliance;
     }
 }
